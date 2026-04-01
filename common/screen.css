@@ -1,0 +1,122 @@
+html, body {
+    margin: 0;
+}
+body {
+    font-family: "Microsoft Sans Serif", sans-serif;
+    font-size: 11pt;
+    background-color: #ffffff;
+    color: #292d32;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+header.top, main.contents, footer.bottom {
+    max-width: 1216px;
+    margin-left: auto;
+    margin-right: auto;
+}
+header.top {
+    background-color: #ffffff;
+}
+img.logo {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 32px;
+    padding-right: 16px;
+}
+h1.site {
+    padding-right: 32px;
+    margin: 0;
+}
+section.brand {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+nav.menu {
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: #00285e;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+main.contents > :last-child {
+    margin-bottom: 0px;
+}
+main.contents {
+    padding: 24px 36px;
+}
+main.contents > p {
+    line-height: 1.6;
+}
+aside.more > h2 {
+    margin: 0;
+}
+ul.box {
+    margin: 0;
+    padding: 0;
+    list-style-type: unset;
+}
+li.box {
+    display: block;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    border: 1px solid #918f8e;
+    background: #c0b7b5;
+    background: linear-gradient(#c0b7b5, white);
+}
+footer.bottom {
+    padding-left: 36px;
+    padding-right: 36px;
+    border-top: 1px solid #00285e;
+    font-size: 10pt;
+}
+h1.page {
+    margin: 0 0 24px 0;
+}
+a.menulink {
+    color: #eeeeee;
+    text-decoration: none;
+    margin: 8px 16px;
+    display: inline-block;
+}
+a.menulink:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+*.textonly {
+    display: none;
+}
+table {
+    width: 100%;
+}
+@media only screen and (min-width: 1215px) {
+    body {
+        font-size: 12pt;
+    }
+    header.top, main.contents, footer.bottom {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    aside.more {
+        width: 320px;
+        font-size: 11.5pt;
+    }
+    footer.bottom {
+        font-size: 11pt;
+    }
+}
+@media only screen and (min-width: 1536px) {
+    header.top, main.contents, footer.bottom {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    aside.more {
+        width: 400px;
+    }
+}

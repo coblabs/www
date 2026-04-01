@@ -1,0 +1,5 @@
+Options +Includes -Indexes
+AddOutputFilter INCLUDES .html
+AddType text/html .html
+ErrorDocument 403 /~coblabs/common/403.html
+ErrorDocument 404 /~coblabs/common/404.html

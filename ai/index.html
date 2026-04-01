@@ -1,0 +1,253 @@
+<!--#INCLUDE VIRTUAL='/~coblabs/common/preamble.html'  
+--><!--#SET VAR='TITLE' VALUE='Zippy AI'
+--><!--#SET VAR='COPYY' VALUE='2025, 2026'
+--><!--#SET VAR='COPYN' VALUE='The University of Akron'
+--><!--#INCLUDE VIRTUAL='/~coblabs/common/header.html'-->
+
+<p>A desktop AI chatbot application designed for the University of
+Akron College of Business. Zippy provides students and faculty with
+an intelligent assistant to answer questions about the college,
+programs, and general inquiries.</p>
+<p><img src="screenshot.png" alt="Zippy AI Screenshot" width="100%"></p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Real-time chat interface with AI-powered responses</li>
+<li>Local AI model integration via Ollama</li>
+<li>Conversation history management</li>
+<li>Clean, modern Qt-based UI</li>
+<li>Cross-platform support (Windows, macOS, GNU/Linux)</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<ul>
+<li><strong>Qt 6.8 or higher</strong> - For building the application</li>
+<li><strong>Ollama</strong> - For running the AI models (local or remote server)</li>
+<li><strong>gpt-oss:20b model</strong> - The current default AI LLM Model</li>
+</ul>
+
+<h2>Getting Started</h2>
+
+<h3 id="1-install-ollama">1. Install Ollama</h3>
+
+<p>Download and install Ollama from: <strong><a href="https://ollama.com">https://ollama.com</a></strong></p>
+<p>After installation, Ollama will run in the background.</p>
+
+<h3 id="2-download-the-ai-model">2. Download the AI Model</h3>
+
+<p>Open a terminal/command prompt and run:</p>
+<pre><code>ollama pull gpt-oss:20b
+</code></pre>
+<p>This downloads the default AI model used by Zippy (approximately
+14GB).</p>
+<p><strong>Note for CoB Production:</strong> The production server at <code>cobgpu1.uanet.edu</code>
+already has the required models installed. Skip this step if connecting
+to the CoB GPU server.</p>
+
+<h3 id="3-run-the-application">3. Run the Application</h3>
+
+<p><strong>Important:</strong> Ollama must be running before you start Zippy AI.
+Ollama typically runs automatically in the background after
+installation.</p>
+<p>Follow the instructions in the "Configuration File" section below to add an Ollama API key so that the model can use web search and web fetch.</p>
+<p>Then simply launch <code>appcob_zippy_ai.exe</code> (Windows) or the compiled
+executable for your platform.</p>
+
+<h2>Configuration File</h2>
+
+<p>The program utilizes a configuration file to store persistent settings as well as the Ollama API key used for web search and web fetch. <strong>You will need to edit this file in order to provide an API key</strong>. The file is called <code>cob_zippy_ai.ini</code> and is located in the same folder as the executable. </p>
+<p>The contents should look something like this:</p>
+<pre><code>[API]
+OllamaKey=yourapikeyhere
+
+[Ollama]
+Model=gpt-oss:20b
+URL=http://cobgpu1.uanet.edu:11434
+ContextSize=32000
+Timeout=120
+</code></pre>
+<p>If you don&#39;t see the API section when you open the file, add it yourself. You can get an API key by making an account on ollama.com. </p>
+
+<h2>Building from Source</h2>
+
+<h3>Prerequisites</h3>
+
+<ul>
+<li>Qt 6.8 or higher</li>
+<li>CMake 3.16 or higher</li>
+<li>C++17 compatible compiler</li>
+<li>Ollama installed and running</li>
+</ul>
+
+<h3>Build Steps</h3>
+
+<pre><code># Clone the repository
+git clone https://github.com/dylondark/cob-zippy-ai.git
+cd cob-zippy-ai
+
+# Create build directory
+mkdir build &amp;&amp; cd build
+
+# Configure with CMake
+cmake ..
+
+# Build
+cmake --build . --config Release
+
+# Run
+./appcob_zippy_ai
+</code></pre>
+
+<h2>Configuration</h2>
+
+<p>You can configure Zippy through the settings panel:</p>
+<ul>
+<li><strong>Ollama URL</strong>: Default is <code>http://cobgpu1.uanet.edu:11434</code> (CoB GPU server)</li>
+<li><strong>Model</strong>: Default is <code>gpt-oss:20b</code> (you can change to other Ollama
+models)</li>
+<li><strong>Context Size</strong>: Adjustable for longer conversations (default: 32,000 tokens)</li>
+<li><strong>Timeout</strong>: Request timeout in seconds (default: 120s)</li>
+</ul>
+
+<h3>Production Server (CoB)</h3>
+
+<p>For production use within the College of Business:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>URL</td>
+<td><code>http://cobgpu1.uanet.edu:11434</code></td>
+</tr>
+<tr>
+<td>Model</td>
+<td><code>gpt-oss:20b</code></td>
+</tr>
+<tr>
+<td>Network</td>
+<td>Campus VPN or CoB Wired network required</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Available Models</h2>
+
+<p>While Zippy uses <code>gpt-oss:20b</code> by default, you can use any model
+available through Ollama. Recommended models for the Tesla L4 (24GB):</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Size</th>
+<th>VRAM</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gpt-oss:20b</code></td>
+<td>14GB</td>
+<td>~16-18GB</td>
+<td><strong>Default</strong> - tool support, reasoning</td>
+</tr>
+<tr>
+<td><code>llama3.1:8b</code></td>
+<td>4.7GB</td>
+<td>~6GB</td>
+<td>Lighter alternative</td>
+</tr>
+<tr>
+<td><code>qwen2.5:14b</code></td>
+<td>~9GB</td>
+<td>~10GB</td>
+<td>Excellent reasoning</td>
+</tr>
+<tr>
+<td><code>mistral:7b</code></td>
+<td>4.1GB</td>
+<td>~5GB</td>
+<td>Fast, efficient</td>
+</tr>
+</tbody>
+</table>
+<pre><code># List available models
+ollama <span class="hljs-built_in">list
+
+# Pull a different model
+ollama pull qwen2.5:14b
+ollama pull mistral:7b
+</code></pre>
+<p>Then change the model in Zippy&#39;s settings.</p>
+<p><strong>Please note that Zippy AI requires Ollama to be running in the
+background.</strong>  The AI responses are generated locally on your machine
+using the Ollama framework.  Make sure that both Ollama and the
+model you wish to use with it are both installed prior to using the
+AI.</p>
+
+<h2>Troubleshooting</h2>
+
+<h3>"Not connected to Ollama server"</h3>
+
+<ul>
+<li>For CoB production: Ensure you&#39;re on Campus VPN or CoB wired network</li>
+<li>Test server connectivity: <code>curl http://cobgpu1.uanet.edu:11434/api/tags</code></li>
+<li>For local development: Ensure Ollama is installed and running locally</li>
+<li>Try running <code>ollama list</code> in terminal to verify Ollama is working</li>
+</ul>
+
+<h3>Model not found</h3>
+
+<ul>
+<li>Make sure you&#39;ve pulled the model: <code>ollama pull gpt-oss:20b</code></li>
+<li>Check available models: <code>ollama list</code></li>
+<li>On production server: SSH to cobgpu1 and run <code>ollama pull &lt;model&gt;</code></li>
+</ul>
+
+<h3>Application won&#39;t start</h3>
+
+<ul>
+<li>Verify Qt 6.8+ is installed</li>
+<li>Check that all dependencies are present</li>
+<li>On Windows, you may need Visual C++ Redistributable</li>
+</ul>
+
+<h2>Contributing</h2>
+
+<p>Contributions are welcome! Please feel free to submit issues or
+pull requests.</p>
+
+<h2>License</h2>
+
+<p>Zippy AI is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License,
+or (at your option) any later version.</p>
+<p>This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.</p>
+<p>You should have received a copy of the GNU General Public License
+along with this program.  If not, see <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.</p>
+
+<h2>Credits</h2>
+
+<p>Developed for the <a href="https://www.uakron.edu/cba/">University of Akron College of
+Business</a>
+<br>Powered by <a href="https://ollama.com">Ollama</a> and <a href="https://www.qt.io/development/qt-framework">Qt
+Framework</a></p>
+
+<h2>Download</h2>
+
+<ul>
+<li><a href="/~coblabs/dl/ai/ai_latest.tar.gz">Latest tarball</a>
+<li><a href="/~coblabs/dl/ai/">All releases</a>
+</ul>
+
+<!--#INCLUDE VIRTUAL='/~coblabs/common/footer.html'-->
