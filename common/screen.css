@@ -20,7 +20,6 @@ header.top {
 img.logo {
     padding-top: 24px;
     padding-bottom: 24px;
-    padding-left: 32px;
     padding-right: 16px;
 }
 h1.site {
@@ -35,8 +34,6 @@ section.brand {
     align-items: center;
 }
 nav.menu {
-    padding-left: 16px;
-    padding-right: 16px;
     background-color: #00285e;
     display: flex;
     flex-direction: row;
@@ -48,7 +45,7 @@ main.contents > :last-child {
     margin-bottom: 0px;
 }
 main.contents {
-    padding: 24px 36px;
+    padding: 24px 0;
 }
 main.contents > p {
     line-height: 1.6;
@@ -68,8 +65,6 @@ li.box {
     background: linear-gradient(#c0b7b5, white);
 }
 footer.bottom {
-    padding-left: 36px;
-    padding-right: 36px;
     border-top: 1px solid #00285e;
     font-size: 10pt;
 }
