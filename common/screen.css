@@ -3,7 +3,7 @@ html, body {
 }
 body {
     font-family: "Microsoft Sans Serif", sans-serif;
-    font-size: 11pt;
+    font-size: 0.9rem;
     background-color: #ffffff;
     color: #292d32;
     margin-left: 5%;
@@ -67,7 +67,7 @@ li.box {
 }
 footer.bottom {
     border-top: 1px solid #00285e;
-    font-size: 10pt;
+    font-size: 8rem;
 }
 h1.page {
     margin: 0 0 24px 0;
@@ -90,17 +90,25 @@ table {
 }
 @media only screen and (min-width: 1215px) {
     body {
-        font-size: 12pt;
+        font-size: 1rem;
     }
     header.top, main.contents, footer.bottom {
         max-width: 1216px;
     }
     footer.bottom {
-        font-size: 11pt;
+        font-size: 0.9rem;
     }
 }
 @media only screen and (min-width: 1535px) {
     header.top, main.contents, footer.bottom {
         max-width: 1536px;
+    }
+}
+@media only screen and (max-width: 479px) {
+    nav.menu {
+        display: block;
+    }
+    a.menulink {
+        margin-right: 32px;
     }
 }
