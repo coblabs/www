@@ -48,7 +48,7 @@ main.contents > :last-child {
 main.contents {
     padding: 24px 0;
 }
-main.contents > p {
+main.contents > p, main.contents > ul > li {
     line-height: 1.6;
 }
 ul.box {
