@@ -1,0 +1,42 @@
+<!--#INCLUDE VIRTUAL='/~coblabs/common/preamble.html'  
+--><!--#SET VAR='TITLE' VALUE='Atrium Display'
+--><!--#SET VAR='COPYY' VALUE='2025, 2026'
+--><!--#SET VAR='COPYN' VALUE='The University of Akron'
+--><!--#INCLUDE VIRTUAL='/~coblabs/common/header.html'-->
+
+<p>Display for the touchscreen in the UA College of Business atrium</p>
+<p>Written in C#, WinForms, .NET Framework. Intended to be edited in Visual Studio (VS)</p>
+<p><img src="screenshot.png" alt="Screenshot of application"></p>
+
+<h2 id="important-information">Important Information</h2>
+
+<ul>
+<li>Project will not build without the key. To solve this, go to the project properties in VS -&gt; signing tab -&gt; click &quot;select from file...&quot; -&gt; select &quot;Atrium_TemporaryKey.pfx&quot; -&gt; password is &quot;Pass3word!&quot;</li>
+<li>Project will not run correctly without Visual C++ Redistributable 2015-2022 (x64)</li>
+<li>To get project onto display, go to &quot;build&quot; dropdown in VS -&gt; click &quot;publish atrium&quot; -&gt; specify the location to publish to and click next -&gt; choose &quot;from a CD-ROM or DVD-ROM&quot; and click next -&gt; choose &quot;this application will not check for updates&quot; and click next -&gt; click finish -&gt; get the installer onto the display computer and install it.<ul>
+<li>You may need to uninstall any older versions in control panel before installing the new version</li>
+<li>Program will be launchable via start menu after install</li>
+<li>This will build according to your selection of debug or release mode. It is recommended to publish in release mode if the published program is going to be used by the end users</li>
+</ul>
+</li>
+<li>Debug mode can be entered by clicking/tapping the COB logo 5 times if you have built the project in the debug profile</li>
+<li>Program saves a csv file containing recorded activity in User\Documents\displaytest_output</li>
+</ul>
+
+<h2 id="maintenance-information">Maintenance Information</h2>
+
+<ul>
+<li>The web browser will likely need updated from time to time. To do this go to solution explorer in VS -&gt; right click project file -&gt; go to &quot;manage nuget packages&quot; -&gt; updates tab -&gt; select all cefsharp packages and update. Make a commit with ONLY THESE CHANGES and cherry pick it to all the other branches (or else VS may break for the other branches)</li>
+<li>All functions (unless they are extremely self explanatory) should have a comment above them explaining what they do in a sentence or two</li>
+<li>All window controls follow a naming scheme of a 3 or so letter abbreviation of the object type followed by the name (Ex. picLogo for a picturebox, lblDebug for a label, etc)</li>
+<li>Related functions (functions that are part of a single system like the stats system or the debug system) should be grouped into regions to assist readability (you can toggle their visibility in VS)</li>
+</ul>
+
+<h2>Download</h2>
+
+<ul>
+<li><a href="/~coblabs/dl/btn/btn_latest.tar.gz">Latest tarball</a>
+<li><a href="/~coblabs/dl/btn/">All releases</a>
+</ul>
+
+<!--#INCLUDE VIRTUAL='/~coblabs/common/footer.html'-->
