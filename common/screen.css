@@ -34,7 +34,8 @@ section.brand {
     align-items: center;
 }
 nav.menu {
-    background-color: #00285e;
+    border-top: 1px solid #00285e;
+    border-bottom: 1px solid #00285e;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -72,13 +73,13 @@ h1.page {
     margin: 0 0 24px 0;
 }
 a.menulink {
-    color: #eeeeee;
+    color: #003e8f;
     text-decoration: none;
     margin: 8px 0;
     display: inline-block;
 }
 a.menulink:hover {
-    color: #ffffff;
+    color: #0054c2;
     text-decoration: underline;
 }
 *.textonly {
