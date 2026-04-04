@@ -20,7 +20,11 @@ header.top {
 img.logo {
     padding-top: 24px;
     padding-bottom: 24px;
+    /* If any section goes next to the logo ever,
+       it should have padding-left, as opposed to
+       this padding-right.
     padding-right: 16px;
+    */
 }
 h1.site {
     padding-right: 32px;
@@ -110,6 +114,11 @@ a#skip:focus {
     }
     footer.bottom {
         font-size: 0.9rem;
+    }
+}
+@media only screen and (max-width: 571px) {
+    img.logo {
+        width: 100%;
     }
 }
 @media only screen and (max-width: 479px) {
