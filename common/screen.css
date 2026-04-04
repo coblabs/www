@@ -88,6 +88,19 @@ a.menulink:hover {
 table {
     width: 100%;
 }
+a#skip {
+    position: absolute;
+    top: -32rem;
+    left: 0;
+    background: #00285e;
+    color: #ffffff;
+    padding: 0.5rem;
+    z-index: 100;
+    text-decoration: none;
+}
+a#skip:focus {
+    top: 0;
+}
 @media only screen and (min-width: 1215px) {
     body {
         font-size: 1rem;
